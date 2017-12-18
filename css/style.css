@@ -1,0 +1,1143 @@
+/* GLOBAL -START- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    min-height: 100%;
+}
+
+/* HEADER -START- */
+#logo {
+    position: fixed;
+    margin: 3%;
+    width: 18%; 
+    z-index: 1;
+}
+
+/* MOBILE "BURGER" MENU -START- */
+#menu {
+    display: inline-block;
+    position: fixed;
+    z-index: 1;
+    margin-left: 75%;
+    margin-top: 15%;
+}
+
+/* "BURGER" BUTTON */
+#menu input {
+    display: inline;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    opacity: 0;
+    z-index: 2;
+    margin-left: 35%;
+    margin-top: -60%;
+}
+
+#menu span {
+    display: inline;
+    float: right;
+    clear: right;
+    width: 30px;
+    height: 4px;
+    margin-bottom: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    z-index: 2;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s ease-in-out;
+}
+
+#menu span:nth-child(2) {
+    transform: rotate(-45deg) translate(9px, 16px);
+}
+
+#menu span:nth-child(3) {
+    width: 50px;
+    transform: rotate(-45deg) translate(18px, 14px);
+}
+
+#menu span:nth-child(4) {
+    transform: rotate(-45deg) translate(20px, -16px);
+}
+
+/* "BURGER" BUTTON CHECKED */
+#menu input:checked ~ span:nth-child(2) {
+    transform: rotate(-135deg) translate(-9px, 16.5px);
+}
+
+#menu input:checked ~ span:nth-child(4) {
+    transform: rotate(45deg) translate(-5px, -33px);
+}
+
+
+#menu input:checked ~ span {
+    -webkit-animation-name: input-checked;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 0.15s;
+}
+
+@keyframes input-checked {
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+}
+
+/* "BURGER" BUTTON UNCHECKED */
+#menu input:not(:checked) ~ span {
+    -webkit-animation-name: input-unchecked;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 0.08s;
+}
+
+@keyframes input-unchecked {
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+}
+
+/* OFF SCREEN MENU */
+#nav {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin-top: -15%;
+    margin-left: -75%;
+    background: rgba(0, 0, 0, 0.8);
+    list-style-type: none;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-out,
+                opacity 1s;
+    z-index: -1;
+}
+
+#nav li {
+    padding: 5%;
+    text-align: center;
+}
+
+#nav li a {
+    text-decoration: none;
+    font-family: 'Righteous', cursive;
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+}
+
+.nav-item-1 {
+    margin-top: 60%;
+}
+
+.nav-item-3 {
+    margin-bottom: 5%;
+}
+
+#menu input:checked ~ #nav {
+    opacity: 1;
+    transform: none;
+}
+/* MOBILE "BURGER" MENU -END- */
+/* HEADER -END- */
+
+/* FRONT PAGE -START- */
+#frontpage {
+    background-image: url(../images/frontpage.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+/* FRONT PAGE -END- */
+
+/* "CASES" SLIDER -START- */
+#checkbox {
+    opacity: 0;
+    position: fixed;
+    padding: 10%;
+    width: 30%;
+    height: 7%;
+    margin-left: 35%;
+    margin-top: 65%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#cases-bg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    height: 50em;
+    list-style-type: none;
+    transform: translateY(-120%);
+    transition: transform 0.7s ease-out,
+                opacity 1.2s;
+    z-index: 2;
+    /* BACKGROUND GRADIENT */
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(191,191,191,1) 25%, rgba(127,127,127,1) 51%, rgba(64,64,64,1) 75%, rgba(0,0,0,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(25%, rgba(191,191,191,1)), color-stop(51%, rgba(127,127,127,1)), color-stop(75%, rgba(64,64,64,1)), color-stop(100%, rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(191,191,191,1) 25%, rgba(127,127,127,1) 51%, rgba(64,64,64,1) 75%, rgba(0,0,0,1) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(191,191,191,1) 25%, rgba(127,127,127,1) 51%, rgba(64,64,64,1) 75%, rgba(0,0,0,1) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(191,191,191,1) 25%, rgba(127,127,127,1) 51%, rgba(64,64,64,1) 75%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(191,191,191,1) 25%, rgba(127,127,127,1) 51%, rgba(64,64,64,1) 75%, rgba(0,0,0,1) 100%);
+}
+
+#checkbox:checked ~ #cases-bg {
+    opacity: 1;
+    transform: none;
+}
+
+.close {
+    position: absolute;
+    font-size: 6em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.close:hover {
+    color: rgb(125, 125, 125);
+}
+
+.cases-page {
+    visibility: hidden;
+    font-size: 4em;
+    margin-left: 85%;
+    color: rgb(255, 255, 255);
+    z-index: 3;
+}
+
+.close:target ~ #cases-bg {
+    transform: translateY(-100%);
+}
+
+#checkbox:checked ~ .close {
+    visibility: visible;
+}
+
+.case {
+    display: block;
+    position: absolute;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.case:hover {
+    box-shadow: 8px 8px 8px rgba(255, 255, 255, 0.4), 8px 8px 8px rgba(0, 0, 0, 0.8);
+    filter: -webkit-grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.rooftop {
+    margin-top: 20%;
+}
+
+.intune {
+    margin-top: 65%;
+}
+
+.deluxe {
+    margin-top: 110%;
+}
+
+.overlay {
+    position: absolute;
+    width: 80%;
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.a {
+    margin-left: 10%;
+    margin-top: 20%;
+}
+
+.a:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.b {
+    margin-left: 10%;
+    margin-top: 65%;
+}
+
+.b:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.c {
+    margin-left: 10%;
+    margin-top: 110%;
+}
+
+.c:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.visit {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: rgb(0, 0, 0);
+    width: 50%;
+    float: left;
+}
+
+.visit:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.more {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(255, 255, 255);
+    width: 50%;
+    float: left;
+}
+
+.more:hover {
+    background-color: rgb(0, 0, 0);
+}
+
+.link-text {
+    margin-top: 44%;
+    margin-bottom: 44%;
+}
+/* "CASES" SLIDER -END- */
+
+/* "ABOUT" SLIDER -START- */
+.slider {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin-left: -100%;
+    background: rgb(255, 255, 255);
+    opacity: 0;
+    transition: transform 0.5s ease-out,
+                opacity 1s;
+    z-index: 1;
+}
+
+.slider:target {
+    opacity: 1;
+    transform: translateX(100%);
+}
+
+.about {
+    margin-top: -5%;
+    left: 80%;
+    color: rgb(0, 0, 0);
+}
+
+#content {
+    text-align: left;
+    padding: 5%;
+    margin-right: 15%;
+}
+
+#content h1 {
+    font-family: 'Righteous', sans-serif;
+    font-size: 3em;
+    margin-top: 25%;
+    margin-bottom: 10%;
+}
+
+#content h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3em;
+    padding-bottom: 3%;
+}
+
+#content p {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    padding-bottom: 15%;
+}
+
+#content p:last-child {
+    margin-bottom: 15%;
+}
+/* "ABOUT" SLIDER -END- */
+
+/* "PROCESS GALLERY" PAGE -START- */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    /* BACKGROUND GRADIENT */
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(191,191,191,1) 25%, rgba(127,127,127,1) 51%, rgba(64,64,64,1) 75%, rgba(0,0,0,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(25%, rgba(191,191,191,1)), color-stop(51%, rgba(127,127,127,1)), color-stop(75%, rgba(64,64,64,1)), color-stop(100%, rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(191,191,191,1) 25%, rgba(127,127,127,1) 51%, rgba(64,64,64,1) 75%, rgba(0,0,0,1) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(191,191,191,1) 25%, rgba(127,127,127,1) 51%, rgba(64,64,64,1) 75%, rgba(0,0,0,1) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(191,191,191,1) 25%, rgba(127,127,127,1) 51%, rgba(64,64,64,1) 75%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(191,191,191,1) 25%, rgba(127,127,127,1) 51%, rgba(64,64,64,1) 75%, rgba(0,0,0,1) 100%);
+}
+
+.gallery section {
+    width: 40%;
+    margin-top: 10%;
+    filter: -webkit-grayscale(100%);
+    filter: grayscale(100%);
+    box-shadow: 8px 8px 8px rgba(255, 255, 255, 0.4), 8px 8px 8px rgba(0, 0, 0, 0.8);
+}
+
+.gallery section:hover {
+    width: 60%;
+    filter: -webkit-grayscale(0%);
+    filter: grayscale(0%);
+}
+
+.gallery img {
+    width: 100%;
+}
+
+.gallery h1 {
+    width: 100%;
+    padding: 5%;
+    margin-top: 25%;
+    font-family: 'Righteous', sans-serif;
+    letter-spacing: 2px;
+    color: rgb(255, 255, 255);
+}
+
+.gallery h2 {
+    width: 100%;
+    padding: 5%;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.8em;
+    color: rgb(255, 255, 255);
+}
+
+.small {
+    margin-bottom: 25%;
+}
+/* "PROCESS GALLERY" PAGE -END- */
+
+/* "ROOFTOP, IN TUNE, DELUXE" PAGES -START- */
+article {
+    font-family: 'Comfortaa', cursive;
+    text-align: left;
+    line-height: 2em;
+}
+
+.pic-box {
+    width: 100%;
+}
+
+.pic-box:hover {
+    filter: -webkit-grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.pic-box img {
+    width: 100%;
+}
+
+.sticky {
+    width: 100%;
+    padding: 10%;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: rgb(51, 51, 51);
+    position: -webkit-sticky;
+    position: sticky;
+    margin-top: -3%;
+    top: -1px;
+}
+
+.txt-box-1 {
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+}
+
+.txt-box-1 p {
+    padding: 10%;
+}
+
+.txt-box-2 {
+    width: 100%;
+    color: rgb(0, 0, 0);
+    background: rgb(250, 250, 250);
+}
+
+.txt-box-2 p {
+    padding: 10%;
+}
+/* "ROOFTOP, IN TUNE, DELUXE" PAGES -END- */
+/* GLOBAL -END- */
+
+/* TABLET -START- */
+@media screen and (min-width: 768px) {
+    
+    /* HEADER -START- */
+    #logo {
+        margin: 3%;
+        width: 12%;
+    }
+    
+    /* MOBILE "BURGER" MENU -START- */
+    #menu {
+        margin-left: 85%;
+        margin-top: 10%;
+    }
+    
+    /* "BURGER" BUTTON */
+    #menu input {
+        width: 55px;
+        height: 55px;
+        margin-left: 30%;
+    }
+    
+    #menu span {
+        width: 40px;
+    }
+
+    #menu span:nth-child(2) {
+        transform: rotate(-45deg) translate(9px, 19px);
+    }
+
+    #menu span:nth-child(3) {
+        width: 60px;
+        transform: rotate(-45deg) translate(18px, 14px);
+    }
+
+    #menu span:nth-child(4) {
+        transform: rotate(-45deg) translate(20px, -19px);
+    }
+
+    /* "BURGER" BUTTON CHECKED */
+    #menu input:checked ~ span:nth-child(2) {
+        transform: rotate(-135deg) translate(-14px, 20.3px);
+    }
+
+    #menu input:checked ~ span:nth-child(4) {
+        transform: rotate(45deg) translate(-10px, -37px);
+    }
+    
+    /* OFF SCREEN MENU */
+    #nav {
+        margin-top: -10%;
+        margin-left: -85%;
+    }
+    
+    #nav li a {
+        font-size: 2.5em;
+    }
+
+    .nav-item-1 {
+        margin-top: 40%;
+    }
+    /* MOBILE "BURGER" MENU -END- */
+    /* HEADER -END- */
+    
+    /* FRONT PAGE -START- */
+    #frontpage {
+        background-image: url(../images/frontpage-medium.png);
+    }
+    /* FRONT PAGE -END- */
+    
+    /* "CASES" SLIDER -START- */
+    #checkbox {
+        width: 20%;
+        height: 6%;
+        margin-left: 40%;
+        margin-top: 45.5%;
+    }
+    
+    #cases-bg {
+        height: 100em;
+    }
+    
+    .close {
+        font-size: 7em;
+    }
+    
+    .cases-page {
+        margin-left: 85%;
+    }
+    
+    .case {
+        width: 70%;
+        margin-left: 15%;
+    }
+    
+    .rooftop {
+        margin-top: 15%;
+    }
+
+    .intune {
+        margin-top: 55%;
+    }
+
+    .deluxe {
+        margin-top: 95%;
+    }
+
+    .overlay {
+        width: 70%;
+        font-size: 1.8em;
+    }
+
+    .a {
+        margin-left: 15%;
+        margin-top: 15%;
+    }
+
+    .b {
+        margin-left: 15%;
+        margin-top: 55%;
+    }
+
+    .c {
+        margin-left: 15%;
+        margin-top: 95%;
+    }
+    /* "CASES" SLIDER -END- */
+    
+    /* "ABOUT" SLIDER -START- */
+    .about {
+        margin-top: 0.1%;
+        left: 86.9%;
+    }
+
+    #content {
+        padding: 10%;
+    }
+
+    #content h1 {
+        font-size: 4em;
+    }
+
+    #content h2 {
+        font-size: 1.6em;
+    }
+
+    #content p {
+        font-size: 1.1em;
+    }
+    /* "ABOUT" SLIDER -END- */
+    
+    /* "PROCESS GALLERY" PAGE -START- */
+    .gallery section {
+        width: 26%;
+    }
+    
+    .gallery section:hover {
+        width: 48%;
+    }
+    
+    .gallery h1 {
+        font-size: 2.5em;
+    }
+
+    .gallery h2 {
+        font-size: 1.5em;
+    }
+    
+    .medium {
+        margin-bottom: 25%;
+    }
+    /* "PROCESS GALLERY" PAGE -END- */
+
+    /* "ROOFTOP, IN TUNE, DELUXE" PAGES -START- */
+    .sticky {
+        padding: 7%;
+        font-size: 1.5em;
+        margin-top: -2%;
+    }
+
+    .txt-box-1 {
+        font-size: 1.3em;
+        padding-bottom: 10%;
+    }
+
+    .txt-box-1 p {
+        padding: 10% 20% 0% 20%;
+    }
+
+    .txt-box-2 {
+        font-size: 1.3em;
+        padding-bottom: 10%;
+    }
+
+    .txt-box-2 p {
+        padding: 10% 20% 0% 20%;
+    }
+    /* "ROOFTOP, IN TUNE, DELUXE" PAGES -END- */
+}
+/* TABLET -END- */
+
+/* 13" DESKTOP -START- */
+@media screen and (min-width: 1024px) {
+    
+    /* HEADER -START- */
+    #logo {
+        margin: 2%;
+        width: 7%;
+    }
+    
+    /* MOBILE "BURGER" MENU -START- */
+    #menu {
+        margin-left: 90%;
+        margin-top: 6%;
+    }
+
+    /* "BURGER" BUTTON */
+    #menu input {
+        width: 50px;
+        height: 50px;
+        margin-left: 35%;
+    }
+
+    #menu span {
+        width: 30px;
+        height: 4px;
+    }
+
+    #menu span:nth-child(2) {
+        transform: rotate(-45deg) translate(9px, 16px);
+    }
+
+    #menu span:nth-child(3) {
+        width: 50px;
+        transform: rotate(-45deg) translate(18px, 14px);
+    }
+
+    #menu span:nth-child(4) {
+        transform: rotate(-45deg) translate(20px, -16px);
+    }
+
+    /* "BURGER" BUTTON CHECKED */
+    #menu input:checked ~ span:nth-child(2) {
+        transform: rotate(-135deg) translate(-9px, 16.5px);
+    }
+
+    #menu input:checked ~ span:nth-child(4) {
+        transform: rotate(45deg) translate(-5px, -33px);
+    }
+    
+    /* OFF SCREEN MENU */
+    #nav {
+        width: 50%;
+        margin-top: -6%;
+        margin-left: -40%;
+    }
+    
+    #nav li a {
+        font-size: 2em;
+    }
+    
+    .nav-item-1 {
+        margin-top: 30%;
+    }
+    /* MOBILE "BURGER" MENU -END- */
+    /* HEADER -END- */
+    
+    /* FRONT PAGE -START- */
+    #frontpage {
+        background-image: url(../images/frontpage-big.png);
+    }
+    /* FRONT PAGE -END- */
+    
+    /* "CASES" SLIDER -START- */
+    #checkbox {
+        width: 10%;
+        height: 7%;
+        margin-left: 70%;
+        margin-top: 17.5%;
+    }
+    
+    #cases-bg {
+        background-image: url(../images/shapes.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 100%;
+    }
+    
+    .close {
+        font-size: 5.9em;
+        font-weight: normal;
+    }
+    
+    .cases-page {
+        margin-left: 91.5%;
+    }
+    
+    .case {
+        width: 30%;
+    }
+
+    .rooftop {
+        margin-top: 12%;
+        margin-left: 2%;
+    }
+
+    .intune {
+        margin-top: 30%;
+        margin-left: 35%;
+    }
+
+    .deluxe {
+        margin-top: 12%;
+        margin-left: 68%;
+    }
+
+    .overlay {
+        width: 30%;
+        font-size: 1.2em;
+    }
+
+    .a {
+        margin-top: 12%;
+        margin-left: 2%;
+    }
+
+    .b {
+        margin-top: 30%;
+        margin-left: 35%;
+    }
+
+    .c {
+        margin-top: 12%;
+        margin-left: 68%;
+    }
+    /* "CASES" SLIDER -END- */
+    
+    /* "ABOUT" SLIDER -START- */
+    .slider {
+        position: fixed;
+        width: 50%;
+        margin-left: -50%;
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    .about {
+        left: 80%;
+    }
+
+    #content {
+        padding-right: 26%;
+    }
+
+    #content h1 {
+        font-size: 2em;
+        margin-top: 25%;
+    }
+
+    #content h2 {
+        font-size: 1em
+    }
+
+    #content p {
+        font-size: 0.65em;
+        padding-bottom: 10%;
+    }
+
+    #content p:last-child {
+        padding-bottom: 1%;
+        margin-bottom: 0;
+    }
+    /* "ABOUT" SLIDER -END- */
+    
+    /* "PROCESS GALLERY" PAGE -START- */
+    .gallery section {
+        width: 17%;
+        margin-top: 5%;
+    }
+    
+    .gallery section:hover {
+        width: 32%;
+    }
+    
+    .gallery h1 {
+        font-size: 2em;
+        margin-top: 5%;
+    }
+
+    .gallery h2 {
+        font-size: 1em;
+    }
+    
+    .large {
+        margin-bottom: 25%;
+    }
+    /* "PROCESS GALLERY" PAGE -END- */
+
+    /* "ROOFTOP, IN TUNE, DELUXE" PAGES -START- */
+    article {
+        background-image: url(../images/frontpage-big.png);
+        background-size: 100%;
+        padding: 15% 11% 0% 11%;
+    }
+    
+    .sticky {
+        padding: 3%;
+        margin-top: -1.4%;
+    }
+
+    .txt-box-1 p {
+        padding: 10% 25% 0% 25%;
+    }
+
+    .txt-box-2 p {
+        padding: 10% 25% 0% 25%;
+    }
+    /* "ROOFTOP, IN TUNE, DELUXE" PAGES -END- */
+}
+/* 13" DESKTOP -END- */
+
+/* 15" DESKTOP -START- */
+@media screen and (min-width: 1440px) {
+
+    /* HEADER -START- */
+    /* MOBILE "BURGER" MENU -START- */
+    #menu {
+        margin-left: 92%;
+        margin-top: 5%;
+    }
+    
+    /* "BURGER" BUTTON */
+    #menu input {
+        width: 55px;
+        height: 55px;
+        margin-left: 30%;
+        margin-top: -65%;
+    }
+    
+    #menu span {
+        width: 40px;
+    }
+
+    #menu span:nth-child(2) {
+        transform: rotate(-45deg) translate(9px, 19px);
+    }
+
+    #menu span:nth-child(3) {
+        width: 60px;
+        transform: rotate(-45deg) translate(18px, 14px);
+    }
+
+    #menu span:nth-child(4) {
+        transform: rotate(-45deg) translate(20px, -19px);
+    }
+
+    /* "BURGER" BUTTON CHECKED */
+    #menu input:checked ~ span:nth-child(2) {
+        transform: rotate(-135deg) translate(-14px, 20.3px);
+    }
+
+    #menu input:checked ~ span:nth-child(4) {
+        transform: rotate(45deg) translate(-10px, -37px);
+    }
+    
+    /* OFF SCREEN MENU */
+    #nav {
+        margin-top: -5%;
+        margin-left: -42%;
+    }
+    
+    #nav li a {
+        font-size: 2.5em;
+    }
+    /* MOBILE "BURGER" MENU -END- */
+    /* HEADER -END- */
+    
+    /* "CASES" SLIDER -START- */
+    #checkbox {
+        height: 6%;
+    }
+    
+    .close {
+        font-size: 7.2em;
+        font-weight: normal;
+    }
+    
+    .cases-page {
+        margin-left: 92.9%;
+        margin-top: -0.4%;
+    }
+    
+    .overlay {
+        font-size: 1.3em;
+    }
+    /* "CASES" SLIDER -END- */
+    
+    /* "ABOUT" SLIDER -START- */
+    .about {
+        top: -0.6%;
+    }
+
+    #content {
+        padding-right: 28%;
+    }
+
+    #content h1 {
+        font-size: 3em;
+    }
+
+    #content h2 {
+        font-size: 1.3em
+    }
+
+    #content p {
+        font-size: 0.9em;
+    }
+    /* "ABOUT" SLIDER -END- */
+    
+    /* "PROCESS GALLERY" PAGE -START- */
+    .gallery h1 {
+        font-size: 3em;
+    }
+
+    .gallery h2 {
+        font-size: 1.5em;
+    }
+    /* "PROCESS GALLERY" PAGE -END- */
+
+    /* "ROOFTOP, IN TUNE, DELUXE" PAGES -START- */
+    article {
+        padding: 14% 15% 0% 15%;
+    }
+    /* "ROOFTOP, IN TUNE, DELUXE" PAGES -END- */
+}
+/* 15" DESKTOP -END- */
+    
+/* 17" DESKTOP -START- */
+@media screen and (min-width: 1920px) {
+
+    /* HEADER -START- */
+    /* MOBILE "BURGER" MENU -START- */
+    #menu {
+        margin-left: 92%;
+        margin-top: 6%;
+    }
+    
+    /* "BURGER" BUTTON */
+    #menu input {
+        width: 65px;
+        height: 65px;
+        margin-left: 25%;
+    }
+    
+    #menu span {
+        width: 50px;
+    }
+
+    #menu span:nth-child(2) {
+        transform: rotate(-45deg) translate(8px, 22px);
+    }
+
+    #menu span:nth-child(3) {
+        width: 75px;
+        transform: rotate(-45deg) translate(18px, 17px);
+    }
+
+    #menu span:nth-child(4) {
+        transform: rotate(-45deg) translate(19px, -23px);
+    }
+
+    /* "BURGER" BUTTON CHECKED */
+    #menu input:checked ~ span:nth-child(2) {
+        transform: rotate(-135deg) translate(-17px, 26.2px);
+    }
+    
+    #menu input:checked ~ span:nth-child(4) {
+        transform: rotate(45deg) translate(-12px, -43px);
+    }
+    
+    /* OFF SCREEN MENU */
+    #nav {
+        margin-top: -6%;
+    }
+    
+    #nav li a {
+        font-size: 3em;
+    }
+    /* MOBILE "BURGER" MENU -END- */
+    /* HEADER -END- */
+    
+    /* "CASES" SLIDER -START- */
+    #checkbox {
+        width: 10%;
+        margin-left: 70%;
+        margin-top: 17.5%;
+    }
+    
+    .close {
+        font-size: 9.2em;
+    }
+    
+    .cases-page {
+        margin-top: 0.9%;;
+        margin-left: 92.5%;
+    }
+    
+    .overlay {
+        font-size: 1.8em;
+    }
+    /* "CASES" SLIDER -END- */
+    
+    /* "ABOUT" SLIDER -START- */
+    .about {
+        top: 1.5%;
+    }
+    
+    #content {
+        padding-right: 35%;
+    }
+    
+    #content h1 {
+        font-size: 3.5em;
+        margin-top: 35%;
+    }
+
+    #content h2 {
+        font-size: 1.5em;
+    }
+
+    #content p {
+        font-size: 1.1em;
+    }
+    /* "ABOUT" SLIDER -END- */
+    
+    /* "PROCESS GALLERY" PAGE -START- */
+    .gallery section {
+        width: 15%;
+    }
+    
+    .gallery section:hover {
+        width: 25%;
+    }
+    
+    .screen {
+        margin-bottom: 25%;
+    }
+    /* "PROCESS GALLERY" PAGE -END- */
+}
+/* 17" DESKTOP -END- */
