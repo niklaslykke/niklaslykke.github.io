@@ -155,7 +155,7 @@ body {
 /* FRONT PAGE -START- */
 #frontpage {
     background-image: url(../images/frontpage.png);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     position: fixed;
     top: 0;
